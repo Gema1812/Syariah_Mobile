@@ -23,7 +23,7 @@ public class db extends SQLiteOpenHelper {
 
     public boolean login(String nohp, String pin){
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("select * from Userdetails where nohp=?", new String[]{nohp});
+        Cursor cursor = DB.rawQuery("select * from Userdetails where nohp=? and pin=?", new String[]{nohp, pin});
         if (cursor.getCount()>0){
             return true;
         }else{
